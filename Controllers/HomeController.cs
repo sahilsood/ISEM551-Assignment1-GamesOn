@@ -63,9 +63,31 @@ public class HomeController : Controller
         return View(model);
     }
 
-    public IActionResult Privacy()
+    public IActionResult AboutUs()
     {
         return View();
+    }
+    
+    public IActionResult GameAward()
+    {
+        var gameAwardViewModel = new GameAwardViewModel
+        {
+            Awards = new List<AwardViewModel>
+            {
+                new() { Year = 2014, Game = "Dragon Age: Inquisition", Developer = "BioWare", Publisher = "Electronic Arts" },
+                new() { Year = 2015, Game = "The Witcher 3: Wild Hunt", Developer = "CD Projekt Red", Publisher = "CD Projekt" },
+                new() { Year = 2016, Game = "Overwatch", Developer = "Blizzard Entertainment" },
+                new() { Year = 2017, Game = "The Legend of Zelda: Breath of the Wild", Developer = "Nintendo EPD", Publisher = "Nintendo" },
+                new() { Year = 2018, Game = "God of War", Developer = "Santa Monica Studio", Publisher = "Sony Interactive Entertainment" },
+                new() { Year = 2019, Game = "Sekiro: Shadows Die Twice", Developer = "FromSoftware", Publisher = "Activision" },
+                new() { Year = 2020, Game = "The Last of Us Part II", Developer = "Naughty Dog", Publisher = "Sony Interactive Entertainment" },
+                new() { Year = 2021, Game = "It Takes Two", Developer = "Hazelight Studios", Publisher = "Electronic Arts" },
+                new() { Year = 2022, Game = "Elden Ring", Developer = "FromSoftware", Publisher = "Bandai Namco Entertainment" },
+                new() { Year = 2023, Game = "Alan Wake II", Developer = "Remedy Entertainment", Publisher = "Epic Games Publishing" }
+            }
+        };
+
+        return View(gameAwardViewModel);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

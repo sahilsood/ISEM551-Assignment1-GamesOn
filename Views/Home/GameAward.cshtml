@@ -1,0 +1,31 @@
+@model GameAwardViewModel
+
+@{
+    ViewData["Title"] = "Awards";
+}
+
+<div class="container-fluid">
+    <h1>Games Award Winners</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Year</th>
+            <th>Game</th>
+            <th>Developer</th>
+            <th>Publisher</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var award in Model.Awards)
+        {
+            <tr>
+                <td>@award.Year</td>
+                <td>@award.Game</td>
+                <td>@award.Developer</td>
+                <td>@award.Publisher</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
