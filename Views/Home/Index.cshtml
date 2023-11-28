@@ -1,8 +1,45 @@
-﻿@{
+﻿@model HomeViewModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <!-- Top played games on Xbox -->
+    <h2>Top Played Games on Xbox</h2>
+    <ul>
+        @if (Model != null && Model.XboxTopGames != null)
+        {
+            foreach (var game in Model.XboxTopGames)
+            {
+                <li>
+                    <img src="@game.ImageUrl" alt="@game.Title" width="100" height="100"/>
+                    @game.Title
+                </li>
+            }
+        }
+        else
+        {
+            <li>No data available for Xbox games.</li>
+        }
+    </ul>
+
+    <!-- Top played games on PlayStation -->
+    <h2>Top Played Games on PlayStation</h2>
+    <ul>
+        @if (Model != null && Model.PlayStationTopGames != null)
+        {
+            foreach (var game in Model.PlayStationTopGames)
+            {
+                <li>
+                    <img src="@game.ImageUrl" alt="@game.Title" width="100" height="100"/>
+                    @game.Title
+                </li>
+            }
+        }
+        else
+        {
+            <li>No data available for PlayStation games.</li>
+        }
+    </ul>
 </div>
