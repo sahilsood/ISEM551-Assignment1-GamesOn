@@ -7,39 +7,25 @@
 <div class="text-center">
     <!-- Top played games on Xbox -->
     <h2>Top Played Games on Xbox</h2>
-    <ul>
-        @if (Model != null && Model.XboxTopGames != null)
+    <ul class="game-list">
+        @foreach (var game in Model.XboxTopGames)
         {
-            foreach (var game in Model.XboxTopGames)
-            {
-                <li>
-                    <img src="@game.ImageUrl" alt="@game.Title" width="100" height="100"/>
-                    @game.Title
-                </li>
-            }
-        }
-        else
-        {
-            <li>No data available for Xbox games.</li>
+            <li class="game-item">
+                <img src="@game.ImageUrl" alt="@game.Title" width="100" height="100"/>
+                @game.Title
+            </li>
         }
     </ul>
 
     <!-- Top played games on PlayStation -->
     <h2>Top Played Games on PlayStation</h2>
-    <ul>
-        @if (Model != null && Model.PlayStationTopGames != null)
+    <ul class="game-list">
+        @foreach (var game in Model.PlayStationTopGames)
         {
-            foreach (var game in Model.PlayStationTopGames)
-            {
-                <li>
-                    <img src="@game.ImageUrl" alt="@game.Title" width="100" height="100"/>
-                    @game.Title
-                </li>
-            }
-        }
-        else
-        {
-            <li>No data available for PlayStation games.</li>
+            <li class="game-item">
+                <img src="@game.ImageUrl" alt="@game.Title" width="100" height="100"/>
+                @game.Title
+            </li>
         }
     </ul>
 </div>
