@@ -1,4 +1,4 @@
-namespace ISEM551_Assignment1_GamesOn.Models;
+namespace Model;
 
 public class ErrorViewModel
 {

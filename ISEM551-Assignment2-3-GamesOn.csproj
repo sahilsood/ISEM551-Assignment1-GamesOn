@@ -1,0 +1,71 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>ISEM551_Assignment1_GamesOn</RootNamespace>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+        <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+        <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+        <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="DataAccess\appsettings.Development.json" />
+      <_ContentIncludedByDefault Remove="DataAccess\appsettings.json" />
+      <_ContentIncludedByDefault Remove="DataAccess\obj\DataAccess.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="DataAccess\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="DataAccess\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="DataAccess\Properties\launchSettings.json" />
+      <_ContentIncludedByDefault Remove="Model\bin\Debug\net7.0\Model.deps.json" />
+      <_ContentIncludedByDefault Remove="Model\obj\Model.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="Model\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="Model\obj\project.packagespec.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Business\**" />
+      <Compile Update="Service\GameOnService.cs">
+        <Link>GameOnService\GameOnService.cs</Link>
+      </Compile>
+      <Compile Remove="Model\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Business\**" />
+      <EmbeddedResource Remove="Model\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="Business\**" />
+      <Content Remove="Model\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Business\**" />
+      <None Include="Web.config">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </None>
+      <None Remove="Model\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.NETCore.Platforms" Version="8.0.0-preview.7.23375.6" />
+      <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+      <PackageReference Include="System.ServiceModel.Primitives" Version="6.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="Business\Business.csproj" />
+      <ProjectReference Include="DataAccess\DataAccess.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Models\" />
+    </ItemGroup>
+
+</Project>
