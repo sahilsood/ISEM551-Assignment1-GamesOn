@@ -7,5 +7,8 @@ namespace GameOnService;
 public interface IGameOnService
 {
     [OperationContract]
-    DataSet GetTopPlayedGames();
+    DataSet GetTopPlayedGames(string gameType);
+    
+    [OperationContract]
+    DataSet GetGameAwards();
 }

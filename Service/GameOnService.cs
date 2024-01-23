@@ -5,8 +5,13 @@ namespace GameOnService;
 
 public class GameOnService : IGameOnService
 {
-    public DataSet GetTopPlayedGames()
+    public DataSet GetTopPlayedGames(string gameType)
     {
-        return DAGameOn.GetTopGamesUsingDBWithOutConfig("");
+        return DAGameOn.GetTopGamesUsingDBWithOutConfig(gameType);
+    }
+    
+    public DataSet GetGameAwards()
+    {
+        return DAGameOn.GetGameAwardsUsingDBWithOutConfig();
     }
 }
